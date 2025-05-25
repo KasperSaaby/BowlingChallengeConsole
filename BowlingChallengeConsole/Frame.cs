@@ -1,7 +1,7 @@
 public class Frame
 {
     private List<Roll> rollList;
-    private int frameNumber;
+    public int FrameNumber;
     private bool isLastFrame;
     private const int MaxPinsInFrame = 10;
 
@@ -13,7 +13,7 @@ public class Frame
         }
 
         this.rollList = new List<Roll>();
-        this.frameNumber = frameNumber;
+        this.FrameNumber = frameNumber;
         this.isLastFrame = isLastFrame;
     }
 
@@ -85,7 +85,17 @@ public class Frame
 
         return true;
     }
-    
+
+    public bool IsLastFrame()
+    {
+        return isLastFrame;
+    }
+
+    public List<Roll> GetRolls()
+    {
+        return rollList;
+    }
+
     public int GetPinsDownInFrame()
     {
         return rollList.Sum(r => r.GetPinsDown());
