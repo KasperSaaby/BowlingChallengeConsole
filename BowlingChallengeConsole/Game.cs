@@ -56,6 +56,11 @@ public class Game
         }
     }
 
+    public int GetTotalScore()
+    {
+        return frameList.Sum(x => x.GetScore());
+    }
+
     public List<Frame> GetFrames()
     {
         return frameList;

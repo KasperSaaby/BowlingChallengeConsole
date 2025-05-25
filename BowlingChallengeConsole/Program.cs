@@ -54,7 +54,7 @@
 
             if (game.IsGameCompleted())
             {
-                Console.WriteLine("Game is completed.");
+                Console.WriteLine("Game is completed with total score: {0}.", game.GetTotalScore());
             }
         }
 
