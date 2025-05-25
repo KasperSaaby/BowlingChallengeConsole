@@ -5,7 +5,7 @@ public class Frame
     private const int MaxPinsInFrame = 10;
     private int bonus = 0;
 
-    public int FrameNumber;
+    public int FrameNumber { get; }
 
     public Frame(int frameNumber, bool isLastFrame = false)
     {
@@ -15,8 +15,9 @@ public class Frame
         }
 
         this.rollList = new List<Roll>();
-        this.FrameNumber = frameNumber;
         this.isLastFrame = isLastFrame;
+
+        this.FrameNumber = frameNumber;
     }
 
     public void AddRoll(Roll roll)
