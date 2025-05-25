@@ -6,7 +6,7 @@ public class Roll
     {
         if (pinsDown < 0 || pinsDown > 10)
         {
-            throw new ArgumentOutOfRangeException(nameof(pinsDown), "Pins down must be between 0 and 10");
+            throw new ArgumentOutOfRangeException(nameof(pinsDown), "Pins down must be between 0 and 10. Was " + pinsDown);
         }
 
         this.pinsDown = pinsDown;

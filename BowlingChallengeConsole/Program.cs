@@ -45,7 +45,8 @@
             game.AddRoll(new Roll(8));
             game.AddRoll(new Roll(6));
 
-            var frameList = game.GetFrames();
+            var bonusCalculatorService = new BonusCalculatorService();
+            var frameList = bonusCalculatorService.CalculateBonus(game);
             var totalScoreProgress = 0;
 
             foreach (var frame in frameList)
@@ -53,7 +54,7 @@
                 var rolls = frame.GetRolls();
                 var rollCount = 0;
 
-                totalScoreProgress += frame.GetPinsDownInFrame();
+                totalScoreProgress += frame.GetScore();
 
                 foreach (var roll in rolls)
                 {

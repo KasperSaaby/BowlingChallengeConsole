@@ -4,6 +4,7 @@ public class Frame
     public int FrameNumber;
     private bool isLastFrame;
     private const int MaxPinsInFrame = 10;
+    private int bonus = 0;
 
     public Frame(int frameNumber, bool isLastFrame = false)
     {
@@ -99,5 +100,15 @@ public class Frame
     public int GetPinsDownInFrame()
     {
         return rollList.Sum(r => r.GetPinsDown());
+    }
+
+    public int GetScore()
+    {
+        return GetPinsDownInFrame() + bonus;
+    }
+
+    public void ApplyBonus(int bonus)
+    {
+        this.bonus = bonus;
     }
 }
