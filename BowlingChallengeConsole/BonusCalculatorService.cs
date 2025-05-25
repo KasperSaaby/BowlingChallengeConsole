@@ -9,7 +9,7 @@ public class BonusCalculatorService
 
         foreach (var currentFrame in frames)
         {
-            Frame nextFrame = null;
+            Frame? nextFrame = null;
 
             i++;
 

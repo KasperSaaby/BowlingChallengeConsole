@@ -1,10 +1,11 @@
 public class Frame
 {
     private List<Roll> rollList;
-    public int FrameNumber;
     private bool isLastFrame;
     private const int MaxPinsInFrame = 10;
     private int bonus = 0;
+
+    public int FrameNumber;
 
     public Frame(int frameNumber, bool isLastFrame = false)
     {
@@ -22,7 +23,7 @@ public class Frame
     {
         if (IsCompleted())
         {
-            // Consider throwing error
+            // Consider throwing exception
             // throw new InvalidOperationException();
             return;
         }
