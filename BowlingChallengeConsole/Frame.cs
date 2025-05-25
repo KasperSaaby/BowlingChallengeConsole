@@ -78,7 +78,7 @@ public class Frame
 
         // Check if a bonus roll is earned (strike on first, or spare on second)
         bool firstRollIsStrike = rollList[0].IsStrike();
-        bool isSpare = rollList.Count >= 2 && !firstRollIsStrike && (rollList[0].GetPinsDown() + rollList[1].GetPinsDown() == MaxPinsInFrame);
+        bool isSpare = !firstRollIsStrike && rollList.Take(2).Sum(x => x.GetPinsDown()) == MaxPinsInFrame;
 
         // If bonus is earned, and 3 rolls have not been made, then frame is not complete
         if ((firstRollIsStrike || isSpare) && rollList.Count < 3)
