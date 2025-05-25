@@ -47,7 +47,20 @@
 
             var bonusCalculatorService = new BonusCalculatorService();
             var frameList = bonusCalculatorService.CalculateBonus(game);
+
+            PrintScoreBoard(frameList);
+
+            if (game.IsGameCompleted())
+            {
+                Console.WriteLine("Game is completed.");
+            }
+        }
+
+        static void PrintScoreBoard(List<Frame> frameList)
+        {
             var totalScoreProgress = 0;
+
+            Console.WriteLine("{0,-10} {1,-10} {2,-20} {3,-10}", "Frame", "Roll", "Knocked down pins", "Total score");
 
             foreach (var frame in frameList)
             {
@@ -59,23 +72,17 @@
                 foreach (var roll in rolls)
                 {
                     rollCount++;
-
                     var isLastRollInFrame = rolls.Count == rollCount;
 
                     if (isLastRollInFrame)
                     {
-                        Console.WriteLine("{0} {1} {2} {3}", frame.FrameNumber, rollCount, roll.GetPinsDown(), totalScoreProgress);
+                        Console.WriteLine("{0,-10} {1,-10} {2,-20} {3,-10}", frame.FrameNumber, rollCount, roll.GetPinsDown(), totalScoreProgress);
                     }
                     else
                     {
-                        Console.WriteLine("{0} {1} {2}", frame.FrameNumber, rollCount, roll.GetPinsDown());
+                        Console.WriteLine("{0,-10} {1,-10} {2,-20}", frame.FrameNumber, rollCount, roll.GetPinsDown());
                     }
                 }
-            }
-
-            if (game.IsGameCompleted())
-            {
-                Console.WriteLine("Game is completed.");
             }
         }
     }
