@@ -2,12 +2,12 @@ public class Game
 {
     private const int NumberOfFrames = 10;
     private List<Frame> frameList;
-    private int currentPlayerStatsIndex = 0;
-    private bool isStarted = false;
+    private int currentFrameIndex = 0;
 
     public Game()
     {
         frameList = new List<Frame>();
+        
         for (var i = 0; i < NumberOfFrames; i++)
         {
             var frameNumber = i + 1;
@@ -15,39 +15,19 @@ public class Game
         }
     }
 
-    public void AdvanceTurn()
-    {
-        var playerStats = GetCurrentPlayerStats();
-
-        // Only advance turn if the current player's current frame is completed
-        if (!playerStats.IsFrameCompleted())
-        {
-            return;
-        }
-
-        if (currentPlayerStatsIndex < playerStatsList.Count - 1)
-        {
-            currentPlayerStatsIndex++;
-        }
-        else
-        {
-            currentPlayerStatsIndex = 0;
-        }
-    }
-
     public void AddRoll(Roll roll)
     {
-        var playerStats = GetCurrentPlayerStats();
-        if (playerStats.IsFrameCompleted())
+        var frame = GetCurrentFrame();
+        if (frame.IsCompleted())
         {
             return;
         }
 
-        playerStats.AddRoll(roll);
+        frame.AddRoll(roll);
     }
 
-    private PlayerStats GetCurrentPlayerStats()
+    public Frame GetCurrentFrame()
     {
-        return playerStatsList[currentPlayerStatsIndex];
+        return frameList[currentFrameIndex];
     }
 }

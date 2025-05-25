@@ -17,6 +17,11 @@ public class Roll
         return pinsDown == 10;
     }
 
+    public bool IsGutter()
+    {
+        return pinsDown == 0;
+    }
+
     public int GetPinsDown()
     {
         return pinsDown;
