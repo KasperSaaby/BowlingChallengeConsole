@@ -2,37 +2,28 @@ public class BonusCalculatorService
 {
     public BonusCalculatorService() { }
 
-    public List<Frame> CalculateBonus(Game game)
+    public void CalculateBonus(Game game)
     {
         var frames = game.GetFrames();
-        var i = 0;
 
-        foreach (var currentFrame in frames)
+        for (var i = 0; i < frames.Count; i++)
         {
-            Frame? nextFrame = null;
-
-            i++;
-
-            if (i < frames.Count)
+            if (i == frames.Count - 1)
             {
-                nextFrame = frames[i];
+                return;
             }
-            else
-            {
-                break;
-            }
+
+            var currentFrame = frames[i];
+            var nextFrame = frames[i+1];
 
             if (currentFrame.IsStrike())
             {
                 currentFrame.ApplyBonus(nextFrame.GetRolls().Take(2).Sum(x => x.GetPinsDown()));
             }
-
-            if (currentFrame.IsSpare())
+            else if (currentFrame.IsSpare())
             {
                 currentFrame.ApplyBonus(nextFrame.GetRolls().Take(1).Sum(x => x.GetPinsDown()));
             }
         }
-
-        return frames;
     }
 }

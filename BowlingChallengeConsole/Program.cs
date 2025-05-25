@@ -46,7 +46,9 @@
             game.AddRoll(new Roll(6));
 
             var bonusCalculatorService = new BonusCalculatorService();
-            var frameList = bonusCalculatorService.CalculateBonus(game);
+            bonusCalculatorService.CalculateBonus(game);
+
+            var frameList = game.GetFrames();
 
             PrintScoreBoard(frameList);
 
