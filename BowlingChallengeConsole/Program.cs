@@ -66,23 +66,23 @@
 
             foreach (var frame in frameList)
             {
-                var rolls = frame.GetRolls();
-                var rollCount = 0;
+                var rollList = frame.GetRolls();
+                var rollNumber = 0;
 
                 totalScoreProgress += frame.GetScore();
 
-                foreach (var roll in rolls)
+                foreach (var roll in rollList)
                 {
-                    rollCount++;
-                    var isLastRollInFrame = rolls.Count == rollCount;
+                    rollNumber++;
+                    var isLastRollInFrame = rollList.Count == rollNumber;
 
                     if (isLastRollInFrame)
                     {
-                        Console.WriteLine("{0,-10} {1,-10} {2,-20} {3,-10}", frame.FrameNumber, rollCount, roll.GetPinsDown(), totalScoreProgress);
+                        Console.WriteLine("{0,-10} {1,-10} {2,-20} {3,-10}", frame.FrameNumber, rollNumber, roll.GetPinsDown(), totalScoreProgress);
                     }
                     else
                     {
-                        Console.WriteLine("{0,-10} {1,-10} {2,-20}", frame.FrameNumber, rollCount, roll.GetPinsDown());
+                        Console.WriteLine("{0,-10} {1,-10} {2,-20}", frame.FrameNumber, rollNumber, roll.GetPinsDown());
                     }
                 }
             }
