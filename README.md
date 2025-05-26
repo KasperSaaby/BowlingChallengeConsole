@@ -2,26 +2,27 @@
 
 The following objects have been identified from the requirements:
 
-* Game (Aggregate Root):
+### Game (Aggregate Root):
 
-This is the central aggregate.
-A Game controls the flow of Frames and ultimately calculates the Score.
-Manage the state of the game, including whose turn it is and if the game is over.
+* This is the central aggregate.
+* A Game controls the flow of Frames and ultimately calculates the Score.
+* Manage the state of the game, including whose turn it is and if the game is over.
 
-* Frame (Entity):
+### Frame (Entity):
 
-Represents a single frame in the game.
-Conceptual boundary for a player's turns and rolls within the game.
-Encapsulates the rolls and their scores for that specific frame.
+* Represents a single frame in the game.
+* Conceptual boundary for a player's turns and rolls within the game.
+* Encapsulates the rolls and their scores for that specific frame.
+* Determines when the frame is compeleted indicating that no more rolls can be added to the frame.
 
-* Roll (Value Object):
+### Roll (Value Object):
 
-Represents a single roll within a frame.
-Roll represents the number of pins knocked down in a single attempt.
-It doesn't have a life cycle independent of a Frame and doesn't have a unique identity.
+* Represents a single roll within a frame.
+* Roll represents the number of pins knocked down in a single attempt.
+* It doesn't have a life cycle independent of a Frame and doesn't have a unique identity.
 
-* BonusCalculatorService
+### BonusCalculatorService
 
-This service will be responsible for the complex logic of calculating the bonus points for strikes and spares across frames.
-It will interact with the Game and Frame objects but won't hold state itself.
-It acts as an orchestrator for scoring.
+* This service will be responsible for the complex logic of calculating the bonus points for strikes and spares across frames.
+* It will interact with the Game and Frame objects but won't hold state itself.
+* It acts as an orchestrator for scoring.
