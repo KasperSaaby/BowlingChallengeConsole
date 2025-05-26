@@ -32,5 +32,5 @@ The following objects have been identified from the requirements:
 * It will interact with the Game and Frame objects but won't hold state itself.
 * It acts as an orchestrator for scoring.
 
-The main focus of the design was to identify key objects and ensure that business logic is encapsulate in these objects.
+The main focus of the design was to identify key objects and ensure that their responsibilities are properly encapsulated.
 The potentially more complex logic is extracted out of the object and into stateless service(s) that can be tested independently.
